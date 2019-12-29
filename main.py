@@ -119,6 +119,7 @@ try:
     rcmp(f3n,f2n)
     if stbool==True:
         stcmp(f3n,f2n)
+    aeiou=input('')
 except Exception as Ex:
     print(Ex)
     print('Check your syntax or recreate the configuration file')
