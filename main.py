@@ -42,8 +42,13 @@ def rcmp(f1name,f2name): #Token Test tests tokens separated by space or newline
         line=line+1
         for el in cl_line(e2):
             e22.append([el,line])
+    fl=True
+    if(len(e11)!=len(e22)):
+        fl=False
+        print('\n\nToken Test Failed\n\n')
+        return
     for e1,e2 in zip(e11,e22):
-        if(e1[0]!=e2[0]):
+        if(e1[0]!=e2[0] or fl==False):
             print('\n\nToken Test Failed\n\n')
             print('Line : '+str(e2[1]))
             print('Expected : ....'+e1[0]+'....')
