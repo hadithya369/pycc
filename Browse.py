@@ -21,8 +21,9 @@ def submit_solution(usern, psw, problem_code, file_loc, contest_name=""):
     Init()
     if Login(usern, psw) == -1:
         return 'Session limit reched'
-    Submit(problem_code, file_loc, contest_name)
+    re=Submit(problem_code, file_loc, contest_name)
     Logout()
+    return re
 
 
 def Init():
