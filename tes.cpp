@@ -18,8 +18,8 @@ long long solve(){
 }
 int main(){
     fastio;
-    freopen("a_output.txt","w",stdout);
-    freopen("a_input.txt","r",stdin);
+    freopen("1_o.txt","w",stdout);
+    freopen("1_i.txt","r",stdin);
     int t;
     cin>>t;
     while(t--){
