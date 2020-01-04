@@ -1,5 +1,7 @@
 from robobrowser import RoboBrowser
 import requests
+import re
+import time
 
 #######################################################################
 ## Usage Example                                                      #
@@ -52,8 +54,9 @@ def Login(usern, psw):
     login_form.serialize()
 
     browser.submit_form(login_form)
+    if(browser.find(class_=re.compile(r'logout',re.I))==None):
+        return 'Wrong Username or Password'
     loginStatus = 1
-
 
     # Add session limit funcitonality later
 
@@ -110,7 +113,14 @@ def Submit(problem_code, file_loc, contest_name=""):
     submission_form['files[sourcefile]'].value = open(file_loc,'rb')
     submission_form['language']='44'
     browser.submit_form(submission_form)
-    return 'Solution submitted to '+problem_code
+    # p1=browser.find(id=re.compile(r'display_result',re.I))
+    # print(p1)
+    # url2=url+'viewsolution/'+re.split('/',browser.url)[-1]
+    # print(url2)
+    # browser.open(url2)
+    # p1=browser.find(class_=re.compile(r'solution-status',re.I))
+    # print(p1)
 
     # with open("subres.html", "w",encoding="utf-8") as text_file:
-    #     print(str(browser.select), file=text_file)
+        # print(str(browser.select), file=text_file)
+    return 'Solution submitted to '+problem_code
